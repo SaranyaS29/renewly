@@ -36,6 +36,7 @@ import NotificationSettings from './pages/NotificationSettings';
 const AppLayout = () => {
   const location = useLocation();
   const hideHeaderRoutes = ['/login', '/signup','/dashboard'];
+  axios.defaults.withCredentials=true;
 
   return (
     <>
