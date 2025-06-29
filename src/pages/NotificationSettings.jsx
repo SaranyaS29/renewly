@@ -17,7 +17,7 @@
 //     console.log("ID from route params:", id);
 //     const fetchNotification = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:5000/api/notifications/getNotif/${id}`);
+//         const res = await axios.get(`${import.meta.env.VITE_URL}/api/notifications/getNotif/${id}`);
 //         console.log("Fetched notification data:", res.data);
 //         console.log("Fetched renewal date:", res.data.renewalDate);
 
@@ -29,7 +29,7 @@
 
     
 // //         if (!fetchedRenewalDate || !fetchedPlatform || !fetchedPayment) {
-// //           const subRes = await axios.get(`http://localhost:5000/api/subscriptionById/${id}`);
+// //           const subRes = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptionById/${id}`);
 // //           console.log("Fetched subscription data:", subRes.data);
 // //           fetchedRenewalDate = subRes.data?.renewalDate ?? '';
 // //           fetchedPlatform = subRes.data?.name ?? '';
@@ -48,7 +48,7 @@
 // let fetchedPayment = data.payment ?? ''; 
 
 // if (!fetchedRenewalDate || !fetchedPlatform || !fetchedPayment) {
-//   const subRes = await axios.get(`http://localhost:5000/api/subscriptionById/${id}`);
+//   const subRes = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptionById/${id}`);
 //   console.log("Fetched subscription data:", subRes.data);
 //   fetchedRenewalDate = subRes.data?.renewalDate ?? '';
 //   fetchedPlatform = subRes.data?.name ?? '';
@@ -90,7 +90,7 @@
 //     setIsLoading(true); // Start loading
 
 //     try {
-//       await axios.post(`http://localhost:5000/api/notifications/setNotif/${id}`, {
+//       await axios.post(`${import.meta.env.VITE_URL}/api/notifications/setNotif/${id}`, {
 //         renewalDate,
 //         daysBefore,
 //         phone,
@@ -196,7 +196,7 @@ const NotificationSettings = () => {
   useEffect(() => {
     const fetchNotification = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/notifications/getNotif/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_URL}/api/notifications/getNotif/${id}`);
         const data = res.data || {};
         
         let fetchedRenewalDate = data.renewalDate ?? '';
@@ -205,7 +205,7 @@ const NotificationSettings = () => {
 
         // Fallback to subscription data if missing
         if (!fetchedRenewalDate || !fetchedPlatform || !fetchedPayment) {
-          const subRes = await axios.get(`http://localhost:5000/api/subscriptionById/${id}`);
+          const subRes = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptionById/${id}`);
           fetchedRenewalDate = subRes.data?.renewalDate ?? '';
           fetchedPlatform = subRes.data?.name ?? '';
           fetchedPayment = subRes.data?.cost ?? ''; 
@@ -267,7 +267,7 @@ if (fetchedRenewalDate) {
     setIsLoading(true);
 
     try {
-      await axios.post(`http://localhost:5000/api/notifications/setNotif/${id}`, {
+      await axios.post(`${import.meta.env.VITE_URL}/api/notifications/setNotif/${id}`, {
         renewalDate,
         daysBefore,
         phone,

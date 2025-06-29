@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import moment from 'moment';
 import axios from 'axios';
-import { createEvents } from 'ics';
+import { createEvents } from 'ics'; 
 
 const CalendarView = ({ userId, token }) => {
   const [events, setEvents] = useState([]);
@@ -13,11 +13,11 @@ const CalendarView = ({ userId, token }) => {
   const [currentMonth, setCurrentMonth] = useState(moment().format('MMMM YYYY'));
 
   useEffect(() => {
-    const fetchSubscriptions = async () => {
+    const fetchSubscriptions = async () =>   {
       try {
         setLoading(true);
         setError('');
-        const { data } = await axios.get(`http://localhost:5000/api/subscriptions/get/${userId}`, {
+        const { data } = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptions/get/${userId}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },

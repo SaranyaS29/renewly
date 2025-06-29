@@ -14,7 +14,7 @@ const SubscriptionForm = ({ token, onAddSubscription }) => {
   const addSubscription = async (subscriptionData, token) => {
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/subscriptions',
+        `${import.meta.env.VITE_URL}/api/subscriptions`,
         subscriptionData,
         {
           headers: {

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const sendSMS = async (phone, message) => {
   try {
-    const response = await axios.post('http://localhost:5000/api/sendSMS', {
+    const response = await axios.post('${import.meta.env.VITE_URL}/api/sendSMS', {
       phone,
       message,
     });

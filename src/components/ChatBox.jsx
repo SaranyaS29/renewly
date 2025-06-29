@@ -12,7 +12,7 @@ const ChatBox = ({ onClose, userId, token }) => {
   useEffect(() => {
     const fetchSubscriptions = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/subscriptions/get/${userId}`, {
+        const res = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptions/get/${userId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSubscriptions(res.data);

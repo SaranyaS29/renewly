@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const sendEmail = async (email, subject, message) => {
   try {
-    const response = await axios.post('http://localhost:5000/api/sendEmail', {
+    const response = await axios.post('${import.meta.env.VITE_URL}/api/sendEmail', {
       email,
       subject,
       message,

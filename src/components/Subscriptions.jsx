@@ -27,7 +27,7 @@ const Subscriptions = ({ token }) => {
     setSubscriptionDetails(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/subscriptions/fetchByPlatform', {
+      const response = await axios.post(`${import.meta.env.VITE_URL}/api/subscriptions/fetchByPlatform`, {
         platform: selectedPlatform,
         phone,
         email

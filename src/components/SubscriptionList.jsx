@@ -19,7 +19,7 @@
 //     try {
 //       setLoading(true);
 //       setError('');
-//       const { data } = await axios.get(`http://localhost:5000/api/subscriptions/get/${userId}`, {
+//       const { data } = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptions/get/${userId}`, {
 //         headers: {
 //           'Authorization': `Bearer ${token}`,
 //         }
@@ -37,7 +37,7 @@
 //   const handleDelete = async (id) => {
 //     try {
 //       setError('');
-//       await axios.delete(`http://localhost:5000/api/subscriptions/${id}`, {
+//       await axios.delete(`${import.meta.env.VITE_URL}/api/subscriptions/${id}`, {
 //         headers: {
 //           'Authorization': `Bearer ${token}`,
 //         }
@@ -122,7 +122,7 @@ const SubscriptionList = ({ userId, token }) => {
     try {
       setLoading(true);
       setError('');
-      const { data } = await axios.get(`http://localhost:5000/api/subscriptions/get/${userId}`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_URL}/api/subscriptions/get/${userId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         }
@@ -140,7 +140,7 @@ const SubscriptionList = ({ userId, token }) => {
   const handleDelete = async (id) => {
     try {
       setError('');
-      await axios.delete(`http://localhost:5000/api/subscriptions/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_URL}/api/subscriptions/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         }
